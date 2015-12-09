@@ -13,6 +13,7 @@
 #define NUMPIXELS       3
 
 //A lot of timing understanding comes from: https://cpldcpu.wordpress.com/2014/01/14/light_ws2812-library-v2-0-part-i-understanding-the-ws2812/
+//And a lot of understanding of WS2812 bitbanging from: http://www.instructables.com/id/Bitbanging-step-by-step-Arduino-control-of-WS2811-/?ALLSTEPS
 
 void setup() {
   // This is for Trinket 5V 16MHz, you can remove these three lines if you are not using a Trinket
