@@ -21,7 +21,7 @@
 #define     BLUE        0x00110000
 #define     YELLOW      0x00001111
 #define     MAGENTA     0x00111100
-#define     CYAN        0x00001111
+#define     CYAN        0x00110011
 #define     WHITE       0x00111111
 #define     BLACK       0x00000000
 
@@ -203,22 +203,3 @@ void solidColor(uint32_t c) {
         [lo]     "r" (lo));
   interrupts();
 }
-
-//Theatre-style crawling lights.
-void theaterChase(uint32_t c, uint8_t wait) {
-  for (int j=0; j<10; j++) {  //do 10 cycles of chasing
-    for (int q=0; q < 3; q++) {
-      for (int i=0; i < strip.numPixels(); i=i+3) {
-        strip.setPixelColor(i+q, c);    //turn every third pixel on
-      }
-      strip.show();
-     
-      delay(wait);
-     
-      for (int i=0; i < strip.numPixels(); i=i+3) {
-        strip.setPixelColor(i+q, 0);        //turn every third pixel off
-      }
-    }
-  }
-}
-
