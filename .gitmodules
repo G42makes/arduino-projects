@@ -1,0 +1,3 @@
+[submodule "KeyboardMouse"]
+	path = KeyboardMouse
+	url = https://github.com/G42makes/KeyboardMouse.git
