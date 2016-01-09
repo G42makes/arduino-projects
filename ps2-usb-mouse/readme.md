@@ -14,6 +14,7 @@ https://github.com/adafruit/Adafruit-Trinket-USB
 This project uses a Trinket from Adafruit for the main system. It could easily be built with just an ATTiny85 and some basic parts if you wish, I don't have those details. The keyboard must be a PS/2 compatible one in order to send the data that this system expects.
 
 Look up a PS/2 connector diagram online or at the site of the library listed above. Connect as below:
+
 | PS/2   | Trinket |
 |--------|---------|
 | Power  | 5V      |
