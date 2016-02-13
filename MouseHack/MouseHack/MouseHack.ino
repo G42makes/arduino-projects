@@ -205,14 +205,17 @@ void setup()
  * get a reading from the mouse and report it back to the
  * host via the serial line.
  */
-
-char mstat;
-char mx;
-char my;
-char mz;
+char pstat;
+char px;
+char py;
+char pz;
+ 
 void loop()
 {
-
+  char mstat;
+  char mx;
+  char my;
+  char mz;
 
   /* get a reading from the mouse */
   mouse_write(0xeb);  /* give me data! */
@@ -223,14 +226,25 @@ void loop()
   mz = mouse_read();
 
   /* send the data back up */
-  Serial.print(mstat, BIN);
-  Serial.print("\tX=");
-  Serial.print(mx, DEC);
-  Serial.print("\tY=");
-  Serial.print(my, DEC);
-  Serial.print("\tZ=");
-  Serial.print(mz, DEC);
-  Serial.println();
+  if (mstat != pstat) {
+    Serial.println(mstat, BIN);
+  }
+  if (mx != px) {
+    Serial.print("X=");
+    Serial.println(mx, DEC);
+  }
+  if (my != py) {
+    Serial.print("Y=");
+    Serial.println(my, DEC);
+  }
+  if (mz != pz) {
+    Serial.print("Z=");
+    Serial.println(mz, DEC);
+  }
+  pstat = mstat;
+  px = mx;
+  py = my;
+  pz = mz;
   delay(20);  /* twiddle */
 }
 
